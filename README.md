@@ -1,2 +1,34 @@
-# StreamInator
-Ever wanted to use a piece of software to stream from one computer (let's call it a server) to another (which we could call a client) but the software is badly written? Boy do I have a solution for you
+# stream-inator
+
+## Project setup
+```
+npm install
+```
+
+### Compiles and hot-reloads for development
+```
+npm run serve
+```
+
+### Compiles and minifies for production
+```
+npm run build
+```
+
+### Run your unit tests
+```
+npm run test:unit
+```
+
+### Run your end-to-end tests
+```
+npm run test:e2e
+```
+
+### Lints and fixes files
+```
+npm run lint
+```
+
+### Customize configuration
+See [Configuration Reference](https://cli.vuejs.org/config/).
