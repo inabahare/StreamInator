@@ -1,5 +1,5 @@
 <template>
-  <div class="home">
+  <div class="add-movies">
   </div>
 </template>
 
@@ -9,5 +9,5 @@ import { Options, Vue } from "vue-class-component";
 @Options({
   components: {},
 })
-export default class Home extends Vue {}
+export default class AddMovies extends Vue {}
 </script>

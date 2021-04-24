@@ -1,27 +1,32 @@
 module.exports = {
   root: true,
   env: {
-    node: true
+    node: true,
   },
   extends: [
     "plugin:vue/vue3-essential",
     "@vue/standard",
-    "@vue/typescript/recommended"
+    "@vue/typescript/recommended",
   ],
   parserOptions: {
-    ecmaVersion: 2020
+    ecmaVersion: 2020,
   },
   rules: {
-    indent: ["error", 2],
-    "linebreak-style": ["error", "unix"],
-    semi: ["error", "always"],
+    indent: ["error", 2,],
+    "linebreak-style": ["error", "unix",],
+    semi: ["error", "always",],
     "no-trailing-spaces": 0,
-    "comma-dangle": "error",
     "no-console": "off",
+    "comma-dangle": ["error", {
+      arrays: "always",
+      objects: "always",
+      imports: "never",
+    },
+    ],
     quotes: [
       "error",
       "double",
-      { avoidEscape: true, allowTemplateLiterals: true }
+      { avoidEscape: true, allowTemplateLiterals: true, },
     ],
     strictPropertyInitialization: 0,
     "import/prefer-default-export": "off",
@@ -36,17 +41,17 @@ module.exports = {
     "arrow-parens": 0,
     "no-restricted-syntax": 1,
     "nonblock-statement-body-position": 0,
-    "operator-linebreak": 0
+    "operator-linebreak": 0,
   },
   overrides: [
     {
       files: [
         "**/__tests__/*.{j,t}s?(x)",
-        "**/tests/unit/**/*.spec.{j,t}s?(x)"
+        "**/tests/unit/**/*.spec.{j,t}s?(x)",
       ],
       env: {
-        mocha: true
-      }
-    }
-  ]
+        mocha: true,
+      },
+    },
+  ],
 };
