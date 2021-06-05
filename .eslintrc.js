@@ -42,6 +42,7 @@ module.exports = {
     "no-restricted-syntax": 1,
     "nonblock-statement-body-position": 0,
     "operator-linebreak": 0,
+    "@typescript-eslint/type-annotation-spacing": 0,
   },
   overrides: [
     {
