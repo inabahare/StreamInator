@@ -10,7 +10,7 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: "/admin/add-movies",
     name: "Add Movies",
-    component: () => import(/* webpackChunkName: "add-movies" */ "@/views/admin/add-movies.vue"),
+    component: () => import("@/views/admin/add-movies/add-movies.vue"),
   },
   // {
   //   path: "/about",
