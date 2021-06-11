@@ -2,9 +2,9 @@
   <div class="add-movies">
     <h1>List of all movies</h1>
 
-    <div v-for="movie of collection"
-         :key="movie.Name">
-      {{ movie.Name }}
+    <div v-for="listing of collection"
+         :key="listing.Name">
+      <movie-listing :listing="listing" />
     </div>
   </div>
 </template>
@@ -13,15 +13,19 @@
 import { movieService } from "@/Services";
 import { onMounted, ref } from "vue";
 import { MovieCollectionDto } from "@/models";
+import MovieListing from "./movie-listing.vue";
+
+import movies from "@/assets/mock-movie-data.json";
 
 export default {
-  // name: "Add movies",
+  name: "Add movies",
+  components: { MovieListing, },
   setup () {
     const collection = ref([] as MovieCollectionDto[]);
 
     async function fetchMovies () {
       const movieList = await movieService.getAllCollections();
-      collection.value = movieList;
+      collection.value = movieList; // movies;
     }
 
     onMounted(() => {
