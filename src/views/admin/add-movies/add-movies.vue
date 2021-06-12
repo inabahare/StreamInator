@@ -24,8 +24,11 @@ export default {
     const collection = ref([] as MovieCollectionDto[]);
 
     async function fetchMovies () {
-      const movieList = await movieService.getAllCollections();
-      collection.value = movieList; // movies;
+      const movieList = 
+        movies;
+        // await movieService.getAllCollections();
+      
+      collection.value = movieList; 
     }
 
     onMounted(() => {
