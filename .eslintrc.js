@@ -17,6 +17,7 @@ module.exports = {
     semi: ["error", "always",],
     "no-trailing-spaces": 0,
     "no-console": "off",
+    "no-debugger": "off",
     "comma-dangle": ["error", {
       arrays: "always",
       objects: "always",

@@ -4,7 +4,8 @@
 
     <div v-for="listing of collection"
          :key="listing.Name">
-      <movie-listing :listing="listing" />
+      <movie-listing :listing="listing"
+                     @update:listing="listing = $event" />
     </div>
   </div>
 </template>
