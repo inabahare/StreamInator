@@ -1,7 +1,7 @@
 
 <template>
   <div class="text-replacer">
-    <div class="replacements"
+    <div class="replacements pb-4"
          v-for="(replacement, index) in replacements"
          :key="index">
       <input class="input"

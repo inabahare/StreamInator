@@ -1,6 +1,6 @@
 <template>
   <div class="add-movies">
-    <h1>List of all movies</h1>
+    <h1 class="heading-1">Listing all movies and their collections</h1>
 
     <div v-for="listing of collection"
          :key="listing.Name">

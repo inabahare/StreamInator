@@ -1,6 +1,6 @@
 <template>
   <section class="collection">
-    <h3>{{ listing.Name }}</h3>
+    <h3 class="heading-3">{{ listing.Name }}</h3>
 
     <div v-for="movie of listing.Movies"
          :key="movie.Name"
