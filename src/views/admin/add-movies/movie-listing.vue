@@ -5,9 +5,9 @@
     <div v-for="movie of listing.Movies"
          :key="movie.Name"
          class="movie">
-      <p class="name"
-         :class="{'underlined': movie.NewName}">{{ movie.Name }}</p>
-      <p class="newName"
+      <p class="name text"
+         :class="{'strikethrough': movie.NewName}">{{ movie.Name }}</p>
+      <p class="newName text"
          v-if="movie.NewName">{{ movie.NewName }}</p>
     </div>
 

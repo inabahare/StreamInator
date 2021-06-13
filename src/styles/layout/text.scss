@@ -15,4 +15,7 @@ html, body {
 }
 
 .text {
+  &.strikethrough {
+    @apply line-through;
+  }
 }
