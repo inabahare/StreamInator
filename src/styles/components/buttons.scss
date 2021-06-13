@@ -1,0 +1,12 @@
+.button {
+  @apply p-1;
+  @apply pl-4;
+  @apply pr-4;
+
+  @apply border-white;
+  @apply border;
+
+  &:hover {
+    @apply bg-gray-900;
+  }
+}

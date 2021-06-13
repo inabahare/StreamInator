@@ -16,8 +16,10 @@
     </div>
 
     <div class="controls">
-      <button @click="addReplacement">Add</button>
-      <button @click="change">Apply</button>
+      <button class="button"
+              @click="addReplacement">Add</button>
+      <button class="button"
+              @click="change">Apply</button>
     </div>
   </div>
 </template>
