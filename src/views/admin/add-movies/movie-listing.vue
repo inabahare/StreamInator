@@ -3,62 +3,59 @@
     <h3>{{ listing.Name }}</h3>
 
     <div v-for="movie of listing.Movies"
-         :key="movie.Name">
-      <p>{{ movie.Name }}</p>
-      <p>{{ movie.NewName }}</p>
+         :key="movie.Name"
+         class="movie">
+      <p class="name"
+         :class="{'underlined': movie.NewName}">{{ movie.Name }}</p>
+      <p class="newName"
+         v-if="movie.NewName">{{ movie.NewName }}</p>
     </div>
 
-    <div class="name-changer">
-      <input class="input"
-             type="text"
-             placeholder="/Replace/"
-             v-model="movieNameRegex">
-
-      <input class="input"
-             type="text"
-             placeholder="With"
-             v-model="replacement">
-
-      <button @click="changeName">Apply</button>
-    </div>
+    <text-replacer :values="names"
+                   v-on:values-change="changeNames" />
 
   </section>
 </template>
 
+<style lang="scss" scoped>
+.movie {
+  display: flex;
+}
+
+.name {
+  margin-right: 20px;
+}
+</style>
+
 <script lang="ts">
 import { defineComponent, PropType, ref } from "vue";
 import { MovieCollectionDto } from "@/models";
+import TextReplacer from "@/components/text-replacer.vue";
 
 export default defineComponent({
   name: "Add movies",
+  components: {
+    TextReplacer,
+  },
   props: {
     listing: {
       type: Object as PropType<MovieCollectionDto>,
       required: true,
     },
   },
-  emits: [
-    "listing",
-  ],
-  setup (props, { emit, }) {
-    const movieNameRegex = ref("");
-    const replacement = ref("");
+  setup (props) {
+    const names = props.listing.Movies.map(m => m.Name);
 
-    function changeName () {
-      const replacer = new RegExp(movieNameRegex.value, "g");
-     
-      for (const movie of props.listing.Movies) {
-        movie.NewName = movie.Name.replace(replacer, replacement.value);
-        console.log(replacer, replacement.value, movie.NewName);
-      }
-
-      emit("listing", props.listing.Movies);
+    function changeNames (names: string[]) {
+      props.listing.Movies.map((movie, index) => {
+        movie.NewName = names[index];
+        return movie;
+      });
     }
 
     return {
-      movieNameRegex,
-      replacement,
-      changeName,
+      names,
+      changeNames,
     };
   },
 });
