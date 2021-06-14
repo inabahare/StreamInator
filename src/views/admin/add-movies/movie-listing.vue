@@ -6,9 +6,9 @@
          :key="movie.Name"
          class="movie">
       <p class="name text"
-         :class="{'strikethrough': movie.NewName}">{{ movie.Name }}</p>
+         :class="{'strikethrough': movie.NewName && movie.Name !== movie.NewName}">{{ movie.Name }}</p>
       <p class="newName text"
-         v-if="movie.NewName">{{ movie.NewName }}</p>
+         v-if="movie.NewName && movie.NewName !== movie.Name">{{ movie.NewName }}</p>
     </div>
 
     <text-replacer :values="names"

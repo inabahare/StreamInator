@@ -13,6 +13,9 @@
              type="text"
              placeholder="With"
              v-model="replacement.replacement">
+
+      <button class="button"
+              @click="removeReplacement(replacement)">Remove</button>
     </div>
 
     <div class="controls">
@@ -26,6 +29,11 @@
 
 <script lang="ts">
 import { defineComponent, PropType, ref } from "vue";
+
+enum ReplacementType {
+  Replace,
+  Remove
+}
 
 type replacement = {
   expression: string;
@@ -60,11 +68,24 @@ export default defineComponent({
 
       replacements.value.push(newReplacement);
     }
+    
+    function removeReplacement (value: replacement) {
+      replacements.value = replacements.value.filter(r => r !== value);
+    }
 
     function change () {
+      console.info("change ()");
+      
       const mapped = 
-        props.values.map(oldValue => 
-          replacements.value.reduce((total, current) => total.replace(new RegExp(current.expression, "g"), current.replacement), oldValue));
+        replacements.value.length === 0 ? 
+          props.values :
+          props.values.map(oldValue => 
+            replacements.value.reduce((total, current) => {
+              if (current.expression.length === 0)
+                return total;
+
+              return total.replace(new RegExp(current.expression, "g"), current.replacement);
+            }, oldValue));
 
       emit("values-change", mapped);
     }
@@ -73,6 +94,7 @@ export default defineComponent({
       newValue,
       replacements,
       addReplacement,
+      removeReplacement,
       change,
     };
   },
